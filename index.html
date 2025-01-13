@@ -312,22 +312,6 @@
         </div>
         <div class="col">
           <div class="my-block d-flex flex-column h-100">
-            <svg class="bi my-color-red fs-4 mb-2"><use href="#calendar3"></use></svg>
-            <span class="fs-5 fw-bold" x-text="$t('duration')"></span>
-            {% if not user.expire %}
-            <span class="fw-semibold" x-text="$t('forever')"></span>
-            {% else %}
-            <!-- Can it be done better? -->
-            {% set date = (user.expire | datetime).split()[0].split('-')[::-1] %}
-            <span class="fw-semibold">
-              <span x-text="$t('until')"></span>
-              {{ '.'.join(date) }}
-            </span>
-            {% endif %}
-          </div>
-        </div>
-        <div class="col">
-          <div class="my-block d-flex flex-column h-100">
             <svg class="bi my-color-blue fs-4 mb-2"><use href="#arrow-down-up"></use></svg>
             <span class="fs-5 fw-bold" x-text="$t('traffic')"></span>
             <span class="fw-semibold">
@@ -339,24 +323,6 @@
             </span>
           </div>
         </div>
-        <div class="col">
-          <div class="my-block d-flex flex-column h-100">
-            <svg class="bi my-color-yellow fs-4 mb-2"><use href="#repeat"></use></svg>
-            <span class="fs-5 fw-bold" x-text="$t('trafficReset')"></span>
-            {% if user.data_limit_reset_strategy == 'no_reset' %}
-            <span class="fw-semibold" x-text="$t('no')"></span>
-            {% elif user.data_limit_reset_strategy == 'day' %}
-            <span class="fw-semibold" x-text="$t('daily')"></span>
-            {% elif user.data_limit_reset_strategy == 'week' %}
-            <span class="fw-semibold" x-text="$t('weekly')"></span>
-            {% elif user.data_limit_reset_strategy == 'month' %}
-            <span class="fw-semibold" x-text="$t('monthly')"></span>
-            {% elif user.data_limit_reset_strategy == 'year' %}
-            <span class="fw-semibold" x-text="$t('yearly')"></span>
-            {% endif %}
-          </div>
-        </div>
-      </div>
       <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
         <span class="fs-3 fw-bold me-auto" x-text="$t('guide')"></span>
         <div class="dropdown">
